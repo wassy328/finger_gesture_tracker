@@ -1,15 +1,22 @@
 import cv2 as cv
 import numpy as np
 import mediapipe as mp
-import csv, copy, itertools, datetime, pprint
+import csv
+import copy
+import itertools
+import datetime
+import pprint
 from model import KeyPointClassifier
-from utils import CvFpsCalc, draw, hand
+from utils import CvFpsCalc
+from utils import draw
+#from utils import hand
 from collections import Counter
 
 def main():
     mode = 0
     out_no = 87
-    var = hand.Variables(out_no)
+    var = out_no
+    #var = hand.Variables(out_no)
 
     mp_hands = mp.solutions.hands
     hands = mp_hands.Hands(max_num_hands = 2,
@@ -17,7 +24,7 @@ def main():
         min_tracking_confidence = 0.5,
     )
     keypoint_classifier = KeyPointClassifier(
-        'model/keypoint_classifier/hand_keypoint_classifier.tflite'
+        'model/keypoint_classifier/keypoint_classifier.tflite'
         )
 
     with open('model/keypoint_classifier/keypoint_classifier_label.csv',
