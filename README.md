@@ -1,2 +1,2 @@
 # finger_gesture_tracker
-Program to recognize fingerprints in Japanese Sign Language.
+Migrating Projects: from https://github.com/wassy310/handgesture_test
